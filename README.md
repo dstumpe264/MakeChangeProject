@@ -1,6 +1,7 @@
 # Make Change Project
 
 ## By David Stumpe
+### September 2017
 
 First week project for Skill Distillery.
 Demonstrates:
