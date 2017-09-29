@@ -1,5 +1,7 @@
 # Make Change Project
 
+## By David Stumpe
+
 First week project for Skill Distillery.
 Demonstrates:
 * Basic Java language skills.
