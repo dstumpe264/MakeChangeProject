@@ -14,7 +14,7 @@ public class MakeChangeProject {
 	private static double tendered;
 
 	public static void main(String[] args) {
-	
+
 		// Prompt user for the price of the item
 		Scanner kb = new Scanner(System.in);
 		System.out.print("Price: ");
@@ -24,13 +24,21 @@ public class MakeChangeProject {
 		System.out.println("Tendered: ");
 		tendered = kb.nextDouble();
 
-		// display an appropriate message if the customer provided too little money or
-		// the exact amount
+		// display an appropriate message if the customer provided too
+		// little money or the exact amount
+		checkAmount(price,tendered);
 		System.out.println("The customer did not give you enough money.");
+		
 		System.out.println("The customer paid the exact amount.");
 
 		// if the amount tendered is more than the cost of the item,
 		// display the number of bills and coins that should be given to the customer.
+		
+	}
+
+	private static void checkAmount(double price2, double tendered2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
