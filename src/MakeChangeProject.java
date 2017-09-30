@@ -20,6 +20,8 @@ public class MakeChangeProject {
 	private static double paid;
 	private static float totalChange;
 	private static int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
+	private static int penniesDue;
+	private static double amountDue;
 
 	public static void main(String[] args) {
 
@@ -34,30 +36,46 @@ public class MakeChangeProject {
 
 		// display an appropriate message if the customer provided too
 		// little money or the exact amount
-		if (checkAmount(price, paid)) {
-			System.out.println("The customer paid the exact amount.");
-		} else {
-			System.out.println("The customer did not give you enough money.");
-		}
+		do {
+			if (checkAmount(price, paid)) {
+				System.out.println("The customer paid the exact amount.");
+				break;
+			} else {
+				System.out.println("The customer did not give you enough money.");
+			}
+		} while (paid < price);
 
 		// if the amount paid is more than the cost of the item,
 		// display the number of bills and coins that should be
 		// given to the customer.
 
-		makeChange(price, paid);
-		System.out.println("The customer's change is: " + totalChange);
-		System.out.print("Twenties: " + twenties + "\nTens: " + tens + "\nFives: " + fives + "\nOnes: " + ones
-				+ "\nQuarters: " + quarters + "\nDimes: " + dimes + "\nNickles: " + nickles + "\nPennies: " + pennies);
+		if (!(checkAmount(price, paid))) {
+			penniesDue = convert(amountDue = (paid - price));
+			makeChange(penniesDue);
+			System.out.println("The customer's change is: " + totalChange);
+			System.out.print("Twenties: " + twenties + "\nTens: " + tens + "\nFives: " + fives + "\nOnes: " + ones
+					+ "\nQuarters: " + quarters + "\nDimes: " + dimes + "\nNickles: " + nickles + "\nPennies: "
+					+ pennies);
+
+		}
+	}
+
+	private static int convert(double amountDue) {
+		// method will convert the amount due into pennies to make it easier to do math
+		// with.
+		return 0;
 
 	}
 
-	private static void makeChange(double price2, double paid2) {
-		//this method will tell the user how much change to give back
+	private static void makeChange(int due) {
+		// this method will take the total amount of pennies and convert it into the the
+		// different amounts of each currency to return.
 	}
 
 	private static boolean checkAmount(double price2, double tendered2) {
 		// this method is meant to see how much the customer paid versus the total price
-		//if they give exact change return true if they did not give enough money return false
+		// if they give exact change return true if they did not give enough money
+		// return false
 		if (price2 == tendered2) {
 			return true;
 		} else {
