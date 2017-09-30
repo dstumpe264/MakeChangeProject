@@ -26,6 +26,8 @@ public class MakeChangeProject {
 
 		// display an appropriate message if the customer provided too little money or
 		// the exact amount
+		System.out.println("The customer did not give you enough money.");
+		System.out.println("The customer paid the exact amount.");
 
 		// if the amount tendered is more than the cost of the item,
 		// display the number of bills and coins that should be given to the customer.
