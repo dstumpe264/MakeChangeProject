@@ -23,24 +23,25 @@ public class MakeChangeProject {
 		price = kb.nextDouble();
 
 		// ask user how much money was paid by the customer
-		System.out.println("Tendered: ");
+		System.out.print("Paid: ");
 		paid = kb.nextDouble();
 
 		// display an appropriate message if the customer provided too
 		// little money or the exact amount
-		checkAmount(price, paid);
-		System.out.println("The customer did not give you enough money.");
-
-		System.out.println("The customer paid the exact amount.");
+		if (checkAmount(price, paid)) {
+			System.out.println("The customer paid the exact amount.");
+		} else {
+			System.out.println("The customer did not give you enough money.");
+		}
 
 		// if the amount paid is more than the cost of the item,
 		// display the number of bills and coins that should be
 		// given to the customer.
 
 		makeChange(price, paid);
-		System.out.print("The customer's change is: " + totalChange + "./n");
-		System.out.print("20: " + twenties + "\n10: " + tens + "\n5: " + fives + "\1: " + ones + "\nQuarters: "
-				+ quarters + "\nDimes: " + dimes + "\nNickles: " + nickles + "\nPennies: " + pennies);
+		System.out.println("The customer's change is: " + totalChange);
+		System.out.print("Twenties: " + twenties + "\nTens: " + tens + "\nFives: " + fives + "\nOnes: " + ones
+				+ "\nQuarters: " + quarters + "\nDimes: " + dimes + "\nNickles: " + nickles + "\nPennies: " + pennies);
 
 	}
 
@@ -49,9 +50,14 @@ public class MakeChangeProject {
 
 	}
 
-	private static void checkAmount(double price2, double tendered2) {
-		// TODO Auto-generated method stub
-
+	private static boolean checkAmount(double price2, double tendered2) {
+		// this method is meant to see how much the customer paid versus the total price
+		//if they give exact change return true if they did not give enough money return false
+		if (price2 == tendered2) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
