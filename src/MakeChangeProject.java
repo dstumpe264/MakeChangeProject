@@ -22,6 +22,8 @@ public class MakeChangeProject {
 	private static int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
 	private static int penniesDue;
 	private static double amountOwed;
+	private static boolean owe;
+
 
 	public static void main(String[] args) {
 
@@ -33,24 +35,27 @@ public class MakeChangeProject {
 		// ask user how much money was paid by the customer
 		System.out.print("Paid: ");
 		paid = kb.nextDouble();
+		amountOwed = paid - price;
 
 		// display an appropriate message if the customer provided too
 		// little money or the exact amount
 		do {
-			if (checkAmount(price, paid)) {
+			if (price == paid) {
 				System.out.println("The customer paid the exact amount.");
-				break;
+			} else if(paid < price){
+				System.out.println("The customer still owes you: ");
 			} else {
-				System.out.println("The customer did not give you enough money.");
+				System.out.println("You owe the customer " + amountOwed);
+				owe = true;
 			}
 		} while (paid < price);
 
 		// if the amount paid is more than the cost of the item,
 		// display the number of bills and coins that should be
 		// given to the customer.
-
-		if (!(checkAmount(price, paid))) {
-			penniesDue = convert(amountOwed = (paid - price));
+		
+		if (owe) {
+			penniesDue = convert(amountOwed);
 			makeChange(penniesDue);
 			System.out.println("The customer's change is: " + totalChange);
 			System.out.print("Twenties: " + twenties + "\nTens: " + tens + "\nFives: " + fives + "\nOnes: " + ones
@@ -70,17 +75,52 @@ public class MakeChangeProject {
 	private static void makeChange(int due) {
 		// this method will take the total amount of pennies and convert it into the the
 		// different amounts of each currency to return.
+		twenties = make20(due);
+		tens = make10(due);
+		fives = make5(due);
+		ones = make1(due);
+		quarters = makeQ(due);
+		dimes = makeD(due);
+		nickles = makeN(due);
+		pennies = due;
+		
+		
 	}
 
-	private static boolean checkAmount(double price2, double tendered2) {
-		// this method is meant to see how much the customer paid versus the total price
-		// if they give exact change return true if they did not give enough money
-		// return false
-		if (price2 == tendered2) {
-			return true;
-		} else {
-			return false;
-		}
+	private static int makeN(int due) {
+		return 0;
+	}
+
+	private static int makeD(int due) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int make1(int due) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int makeQ(int due) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int make5(int due) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int make10(int due) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int make20(int due) {
+		// returns number of 20's to give customer
+		int x = due / 20;
+		due = due % 20;
+		return x;
 	}
 
 }
