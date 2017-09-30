@@ -11,14 +11,18 @@ import java.util.Scanner;
 public class MakeChangeProject {
 
 	private static double price;
+	private static double tendered;
 
 	public static void main(String[] args) {
+	
 		// Prompt user for the price of the item
 		Scanner kb = new Scanner(System.in);
 		System.out.print("Price: ");
 		price = kb.nextDouble();
 
 		// ask user how much money was tendered by the customer
+		System.out.println("Tendered: ");
+		tendered = kb.nextDouble();
 
 		// display an appropriate message if the customer provided too little money or
 		// the exact amount
