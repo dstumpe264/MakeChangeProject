@@ -8,6 +8,12 @@ import java.util.Scanner;
  * coin denominations as possible. Denominations that are not used should 
  * not be displayed.*/
 
+// side note the way i'm thinking right now is that i'm going to convert total - paid = change
+// i'm going to have separate methods for each denominations. so change will be checked against the 20s method 
+//total is 20 user gets 50 from the customer therefore checkTwenties(50) will give back 2 twenties. 50 / 20 ==2.5 chop that off round down.
+//50 mod 20 is going to be 10 there fore change will = 10 and i will check checkTens(10); which 10/10 = 1 and that will go to the tens variable.
+// the the left overs
+
 public class MakeChangeProject {
 
 	private static double price;
@@ -46,8 +52,7 @@ public class MakeChangeProject {
 	}
 
 	private static void makeChange(double price2, double paid2) {
-		// TODO Auto-generated method stub
-
+		//this method will tell the user how much change to give back
 	}
 
 	private static boolean checkAmount(double price2, double tendered2) {
