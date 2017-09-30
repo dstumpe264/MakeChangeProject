@@ -11,7 +11,9 @@ import java.util.Scanner;
 public class MakeChangeProject {
 
 	private static double price;
-	private static double tendered;
+	private static double paid;
+	private static float totalChange;
+	private static int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
 
 	public static void main(String[] args) {
 
@@ -20,25 +22,36 @@ public class MakeChangeProject {
 		System.out.print("Price: ");
 		price = kb.nextDouble();
 
-		// ask user how much money was tendered by the customer
+		// ask user how much money was paid by the customer
 		System.out.println("Tendered: ");
-		tendered = kb.nextDouble();
+		paid = kb.nextDouble();
 
 		// display an appropriate message if the customer provided too
 		// little money or the exact amount
-		checkAmount(price,tendered);
+		checkAmount(price, paid);
 		System.out.println("The customer did not give you enough money.");
-		
+
 		System.out.println("The customer paid the exact amount.");
 
-		// if the amount tendered is more than the cost of the item,
-		// display the number of bills and coins that should be given to the customer.
-		
+		// if the amount paid is more than the cost of the item,
+		// display the number of bills and coins that should be
+		// given to the customer.
+
+		makeChange(price, paid);
+		System.out.print("The customer's change is: " + totalChange + "./n");
+		System.out.print("20: " + twenties + "\n10: " + tens + "\n5: " + fives + "\1: " + ones + "\nQuarters: "
+				+ quarters + "\nDimes: " + dimes + "\nNickles: " + nickles + "\nPennies: " + pennies);
+
+	}
+
+	private static void makeChange(double price2, double paid2) {
+		// TODO Auto-generated method stub
+
 	}
 
 	private static void checkAmount(double price2, double tendered2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
