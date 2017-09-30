@@ -21,7 +21,7 @@ public class MakeChangeProject {
 	private static float totalChange;
 	private static int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
 	private static int penniesDue;
-	private static double amountDue;
+	private static double amountOwed;
 
 	public static void main(String[] args) {
 
@@ -50,7 +50,7 @@ public class MakeChangeProject {
 		// given to the customer.
 
 		if (!(checkAmount(price, paid))) {
-			penniesDue = convert(amountDue = (paid - price));
+			penniesDue = convert(amountOwed = (paid - price));
 			makeChange(penniesDue);
 			System.out.println("The customer's change is: " + totalChange);
 			System.out.print("Twenties: " + twenties + "\nTens: " + tens + "\nFives: " + fives + "\nOnes: " + ones
@@ -60,10 +60,10 @@ public class MakeChangeProject {
 		}
 	}
 
-	private static int convert(double amountDue) {
-		// method will convert the amount due into pennies to make it easier to do math
-		// with.
-		return 0;
+	private static int convert(double amountOwed) {
+		// method will convert the amount due into pennies to make it easier to do math with.
+		int pennies = (int) (amountOwed * 100);
+		return pennies;
 
 	}
 
