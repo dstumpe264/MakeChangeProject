@@ -10,15 +10,16 @@ import java.util.Scanner;
 
 public class MakeChangeProject {
 
-	private static double price;
-	private static double paid;
 	private static int twenties, tens, fives, ones, quarters, dimes, nickles, pennies;
-	private static double amountOwed;
-	private static boolean exact;
-	private static int billsOwed;
-	private static int coinsOwed;
 
 	public static void main(String[] args) {
+		
+		double price;
+		double tender;
+		double amountOwed;
+		boolean exact = false;
+		int billsOwed;
+		int coinsOwed;
 
 		// Prompt user for the price of the item
 		Scanner kb = new Scanner(System.in);
@@ -26,27 +27,27 @@ public class MakeChangeProject {
 		price = kb.nextDouble();
 
 		// ask user how much money was paid by the customer
-		System.out.print("Paid: ");
-		paid = kb.nextDouble();
+		System.out.print("Tendered: ");
+		tender = kb.nextDouble();
 
 		// display an appropriate message if the customer provided too
 		// little money or the exact amount
 		do {
-			if (price == paid) {
+			if (price == tender) {
 				System.out.println("The customer paid the exact amount.");
 				exact = true;
-			} else if (paid < price) {
-				System.out.println("The customer still owes you " + (float) (price - paid));
+			} else if (tender < price) {
+				System.out.println("The customer still owes you $" + (float) (price - tender));
 				// how much the customer owes and add it
 				System.out.print("The customer gave you how much more?");
-				paid = paid + kb.nextDouble();
+				tender = tender + kb.nextDouble();
 			}
-		} while (paid < price);
+		} while (tender < price);
 
 		// if the amount paid is more than the cost of the item,
 		// display the number of bills and coins that should be
 		// given to the customer.
-		amountOwed = paid - price;
+		amountOwed = tender - price;
 		if (!(exact)) {
 			System.out.println("You owe the customer $" + (float) (amountOwed));
 			billsOwed = (int) (amountOwed);
